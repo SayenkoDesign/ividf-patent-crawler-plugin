@@ -51,6 +51,7 @@ $(document).ready(function()
         });
     }
 
+    // convert month string to digit
     function convertMonthToDigit(month) {
         switch(month) {
             case "JAN": return "01";
@@ -68,6 +69,7 @@ $(document).ready(function()
         }
     }
 
+    // listent and update table sorting
     $('#patent_controls select').on('change', function() {
         if($(this).val() == ".applied_on" || $(this).val() == ".issued_on") {
             sortDate($('#patent_controls select[name=sort]').val(), $('#patent_controls select[name=dir]').val());

@@ -1,17 +1,33 @@
 <?php
 namespace IVIDF\Install;
 
+use wpdb;
+
 class Installer
 {
+    /**
+     * @var
+     */
     private $wpdb;
+
+    /**
+     * @var callable
+     */
     private $dbDelta;
 
-    public function __construct($wpdb, Callable $dbdelta)
+    /**
+     * @param wpdb $wpdb
+     * @param callable $dbdelta
+     */
+    public function __construct(wpdb $wpdb, Callable $dbdelta)
     {
         $this->wpdb = $wpdb;
         $this->dbDelta = $dbdelta;
     }
 
+    /**
+     * install database schemas
+     */
     public function installSchema()
     {
         $patents = $this->buildPatentTableSchema();
@@ -20,6 +36,10 @@ class Installer
         call_user_func_array($this->dbDelta, [$updated]);
     }
 
+    /**
+     * build schema for patent table
+     * @return string
+     */
     protected function buildPatentTableSchema()
     {
         $table = $this->wpdb->prefix . "ividf_patents";
@@ -37,6 +57,10 @@ class Installer
         ) $charset;";
     }
 
+    /**
+     * build schema for last updated table
+     * @return string
+     */
     protected function buildLastUpdatedTableSchema()
     {
         $table = $this->wpdb->prefix . "ividf_updated";

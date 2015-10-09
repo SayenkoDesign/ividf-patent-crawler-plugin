@@ -5,13 +5,23 @@ use wpdb;
 
 class Cache
 {
+    /**
+     * @var wpdb
+     */
     protected $wpdb;
 
+    /**
+     * @param wpdb $wpdb
+     */
     public function __construct(wpdb $wpdb)
     {
         $this->wpdb = $wpdb;
     }
 
+    /**
+     * check if the cache is still fresh
+     * @return bool
+     */
     public function isFresh()
     {
         $table = $this->wpdb->prefix . 'ividf_updated';
@@ -24,6 +34,9 @@ class Cache
         return (bool) $result;
     }
 
+    /**
+     * mark the cache as updated
+     */
     public function updated()
     {
         $table = $this->wpdb->prefix . 'ividf_updated';

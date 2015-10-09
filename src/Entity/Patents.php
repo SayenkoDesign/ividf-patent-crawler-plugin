@@ -7,10 +7,26 @@ use wpdb;
 
 class Patents
 {
+    /**
+     * @var Crawler
+     */
     protected $crawler;
+
+    /**
+     * @var Cache
+     */
     protected $cache;
+
+    /**
+     * @var wpdb
+     */
     protected $wpdb;
 
+    /**
+     * @param Crawler $crawler
+     * @param Cache $cache
+     * @param wpdb $wpdb
+     */
     public function __construct(Crawler $crawler, Cache $cache, wpdb $wpdb)
     {
         $this->crawler = $crawler;
@@ -19,6 +35,12 @@ class Patents
         $this->getAll();
     }
 
+    /**
+     * get all the patents.
+     * If the cache is not fresh update it
+     *
+     * @return array|null|object
+     */
     public function getAll()
     {
         $table = $this->wpdb->prefix . "ividf_patents";

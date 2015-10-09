@@ -54,7 +54,6 @@ add_action('admin_menu', function() use($settings) {
     );
 });
 add_shortcode('ividf_patents', [ $patents_shortcode, 'render' ]);
-
 add_action('wp_enqueue_scripts', function() use($base_url){
     wp_register_script('jquery2', '//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js');
     wp_register_script('ividf-patent-crawler-script', $base_url . '/web/js/ividf-patent-crawler.js', ['jquery2']);

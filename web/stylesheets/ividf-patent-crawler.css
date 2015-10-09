@@ -1,0 +1,79 @@
+
+.vc_row.patent_controls {
+    margin-bottom: 16px;
+    font-size: 14px;
+}
+
+.vc_row.patent_controls select {
+    margin-bottom: 16px;
+    padding: 6px 10px;
+}
+
+.vc_row.patent_controls select[name=dir] {
+    float:right;
+}
+
+.vc_row.patent_controls input {
+    width: 100%;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.vc_row.patent_controls .button {
+    background-color: #0E73A3;
+    border:none;
+    color: #FFF;
+    line-height: 20px;
+    padding: 6px 10px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+}
+
+.vc_row.patent_header {
+    border-bottom: 1px solid #000;
+    border-top: 1px solid #000;
+    padding: 8px 0px;
+    font-weight: bold;
+}
+.vc_row.patent {
+    padding: 16px 0px;
+    font-size: 14px;
+    display:none;
+}
+.vc_row.patent:nth-child(even) {
+    background-color: #F9F6F4;
+}
+.vc_row.patent .title {
+    margin-bottom: 8px;
+}
+.vc_row.patent .inventor, .vc_row.patent .issued_on span {
+    color: #666;
+}
+.hidden {
+    display: none;
+}
+
+@media (min-width: 650px) {
+    .vc_row.patent_controls {
+        text-align: right;
+    }
+    .vc_row.patent_controls select[name=dir] {
+        float: none;
+    }
+    .vc_row.patent_controls .button {
+        display: inline-block;
+        width: auto;
+    }
+    .vc_row.patent_controls input {
+        width: auto;
+        margin-bottom: 0;
+    }
+}
+@media (min-width: 768px) {
+    .vc_row.patent .title {
+        margin-bottom: 0;
+    }
+}

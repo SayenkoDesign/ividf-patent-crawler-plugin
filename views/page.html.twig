@@ -1,0 +1,74 @@
+<div class="vc_row patent_controls">
+    <div class="vc_col-sm-12">
+        <form id="patent_controls">
+            <label>Sort By:
+                <select name="sort">
+                    <option value=".id">Patent ID</option>
+                    <option value=".inventor">Inventors</option>
+                    <option value=".title">Title</option>
+                    <option value=".applied_on">Application Date</option>
+                    <option value=".issued_on">Issued Date</option>
+                </select>
+                <select name="dir">
+                    <option value="ASC">Ascending</option>
+                    <option value="DESC">Descending</option>
+                </select>
+            </label>
+            <input type="text" name="filter" placeholder="Search" />
+            <button type="submit" class="button">Filter</button>
+        </form>
+    </div>
+</div>
+
+<div class="patent_header vc_row vc_hidden-xs">
+    <div class="vc_col-sm-9">
+        PATENT ID
+    </div>
+    <div class="vc_col-sm-3">
+        STATUS
+    </div>
+</div>
+
+<div class="patent_header vc_row vc_hidden-sm vc_hidden-md vc_hidden-lg">
+    <div class="vc_col-sm-12">
+        PATENTS
+    </div>
+</div>
+
+<div id="patents">
+    {% for patent in patents %}
+        <div class="vc_row patent">
+            <div class="vc_col-sm-9 basic">
+                <div class="vc_row">
+                    <div class="vc_col-sm-3 id">
+                        <a href="https://idf.intven.com/public_patents/{{ patent.patent_url }}" target="_blank">{{ patent.patent_id }}</a>
+                    </div>
+                    <div class="vc_col-sm-9 inventor">
+                        {{ patent.inventors }}
+                    </div>
+                </div>
+                <div class="vc_row">
+                    <div class="vc_col-sm-12 title">
+                        {{ patent.title }}
+                    </div>
+                </div>
+            </div>
+            <div class="vc_col-sm-3 applied">
+                <div class="vc_row">
+                    <div class="vc_col-sm-12 applied_on">
+                        Applied: {{ patent.applied_on | date('d M Y') }}
+                    </div>
+                </div>
+                <div class="vc_row">
+                    <div class="vc_col-sm-12 issued_on">
+                        {% if patent.issued_on != "0000-00-00" %}
+                            Issued: {{ patent.issued_on | date('d M Y') }}
+                        {% else %}
+                            <span>Issued: Pending</span>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>

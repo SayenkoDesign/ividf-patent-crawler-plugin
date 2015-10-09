@@ -1,0 +1,20 @@
+{
+    "name": "yamiko/ividfpatentcrawler",
+    "description": "crawl, cache and display patents from IVIDF website",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Robert M. Parker",
+            "email": "rparker@yamiko.ninja"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "IVIDF\\": "src/"
+        }
+    },
+    "require": {
+        "twig/twig": "~1.2",
+        "guzzlehttp/guzzle": "~6.0"
+    }
+}

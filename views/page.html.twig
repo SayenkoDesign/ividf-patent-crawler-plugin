@@ -1,6 +1,6 @@
 <div class="vc_row patent_controls">
     <div class="vc_col-sm-12">
-        <form id="patent_controls">
+        <form id="patent_controls" action="#" method="get">
             <label>Sort By:
                 <select name="sort">
                     <option value=".id">Patent ID</option>
@@ -15,7 +15,11 @@
                 </select>
             </label>
             <input type="text" name="filter" placeholder="Search" />
-            <button type="submit" class="button">Filter</button>
+            <label>
+                <input type="checkbox" name="pending" value="true" checked="checked" />
+                Include Pending
+            </label>
+            <!--<button type="submit" class="button">Filter</button>-->
         </form>
     </div>
 </div>
